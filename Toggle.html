@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard Sidebar Toggle</title>
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+  }
+
+  /* Sidebar */
+  .sidebar {
+    width: 220px;
+    background-color: #2c3e50;
+    height: 100vh;
+    transition: width 0.3s;
+    overflow: hidden;
+    color: white;
+  }
+
+  .sidebar.minimized {
+    width: 60px;
+  }
+
+  .sidebar a {
+    display: block;
+    color: white;
+    padding: 15px 20px;
+    text-decoration: none;
+    font-size: 16px;
+    white-space: nowrap;
+  }
+
+  .sidebar a:hover {
+    background-color: #c0c5c4;
+  }
+
+  .sidebar .toggle-btn {
+    display: block;
+    text-align: center;
+    cursor: pointer;
+    padding: 15px;
+    background-color: #34495e;
+    font-size: 20px;
+  }
+
+  /* Main content */
+  .main {
+    flex: 1;
+    padding: 20px;
+    transition: margin-left 0.3s;
+  }
+
+  .main.shifted {
+    margin-left: 60px; /* same as minimized sidebar */
+  }
+
+</style>
+</head>
+<body>
+
+<div class="sidebar" id="sidebar">
+  
+  <a href="#dashboard">🏠 Dashboard</a>
+  <a href="#students">👨‍🎓 Students</a>
+  <a href="#schedule">🗓 Schedule</a>
+  <a href="#payments">💰 Payments</a>
+  <a href="#reports">📊 Reports</a>
+</div>
+<div class="toggle-btn" onclick="toggleSidebar()">☰</div>
+<div class="main" id="main">
+  <h1>Dashboard Content</h1>
+  <p>Click the ☰ button to minimize or maximize the sidebar.</p>
+  <p>This is your main dashboard area. Resize the sidebar to see the effect.</p>
+</div>
+
+<script>
+function toggleSidebar() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+
+  sidebar.classList.toggle("minimized");
+  main.classList.toggle("shifted");
+}
+</script>
+
+</body>
+</html>
